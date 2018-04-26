@@ -24,6 +24,14 @@ module.exports = {
         extensions: [".js", ".jsx"]
     },
     devServer: {
-        port: 3001
+        port: 3001,
+        proxy: {
+            '/gui': {
+                target: 'http://localhost:3001',
+                pathRewrite: {
+                    '^/gui' : ''
+                }
+            }
+        }
     }
 };
